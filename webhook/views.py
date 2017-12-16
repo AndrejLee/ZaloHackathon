@@ -22,11 +22,19 @@ class WebHookView(APIView):
     def get(self, request, format=None):
         image_msg = ""
         data = request.query_params
+        standard_data = {
+            "event": data['event'],
+            "oaid": data['oaid'],
+            "fromuid": data['fromuid'],
+            "appid": data['appid'],
+            "msgid": data['msgid'],
+            "message": data['message'],
+            "timestamp": data['timestamp'],
+            "mac": data['mac']
+        }
         if 'href' in data.keys():
             image_msg = upload_file(request)
-            del data['href']
-            del data['thumb']
-        serializer = WebHookSerializer(data=data)
+        serializer = WebHookSerializer(data=standard_data)
         if serializer.is_valid():
             web_hook = serializer.save()
             # user_respond
