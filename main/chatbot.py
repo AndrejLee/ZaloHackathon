@@ -8,7 +8,7 @@ Created on Fri Dec 15 19:28:21 2017
 
 import underthesea as vnltk
 import json
-from state import *
+from .state import *
 import random
 
 random.seed(7)

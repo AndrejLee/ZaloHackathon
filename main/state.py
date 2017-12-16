@@ -8,8 +8,11 @@ Created on Sat Dec 16 12:53:01 2017
 import underthesea as vnltk
 import json
 import random
+from chatbot.settings import BASE_DIR
+import os
 
-with open('zdata/final-rel-path.json') as f:
+base_path = os.path.join(BASE_DIR)
+with open('{}/main/zdata/final-rel-path.json'.format(base_path)) as f:
     database = json.load(f)
 
 product = {}
