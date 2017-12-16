@@ -26,7 +26,7 @@ class WebHookView(APIView):
             "event": data['event'],
             "oaid": data['oaid'],
             "fromuid": data['fromuid'],
-            "appid": data['appid'],
+            "appid": 0,
             "msgid": data['msgid'],
             "message": data['message'],
             "timestamp": data['timestamp'],
@@ -34,6 +34,7 @@ class WebHookView(APIView):
         }
         if 'href' in data.keys():
             image_msg = upload_file(request)
+            standard_data['message'] = "image"
         serializer = WebHookSerializer(data=standard_data)
         if serializer.is_valid():
             web_hook = serializer.save()
@@ -41,7 +42,7 @@ class WebHookView(APIView):
             msg = web_hook.message
             # chatbot_respond
             if image_msg:
-                respond_text = my_chat_bot.response(text=image_msg)
+                respond_text = image_msg
             else:
                 respond_text = my_chat_bot.response(text=msg)
             # send message to user
