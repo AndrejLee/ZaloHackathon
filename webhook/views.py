@@ -7,9 +7,7 @@ from .serializers import WebHookSerializer
 class WebHookView(APIView):
     parser_classes = (FormParser, MultiPartParser)
 
-    def post(self, request):
-        import pdb
-        pdb.set_trace()
+    def get(self, request):
         data = request.data
         serializer = WebHookSerializer(data=data)
         if serializer.is_valid():
