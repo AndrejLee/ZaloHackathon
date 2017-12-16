@@ -103,6 +103,8 @@ def upload_file(request):
 
         # return info of image
         response_message = chatbot_retrieve(image_path)
+        response_message = response_message.replace('_', ' ')
+        response_message = response_message[:-1]
         return response_message
 
 
