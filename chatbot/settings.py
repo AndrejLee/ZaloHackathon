@@ -81,8 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'chatbot',
-        'USER': 'leminhson',
-        'PASSWORD': '@Leminhson1996',
+        'USER': 'root',
+        'PASSWORD': '123',
         'HOST': 'localhost',
         'PORT': ''
     }
@@ -125,6 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 admin.site.site_header = "Zalo Chatbot"
 admin.site.site_title = "Zalo Chatbot"
