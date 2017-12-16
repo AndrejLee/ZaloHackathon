@@ -7,9 +7,7 @@ import os
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "chatbot.settings")
     base_path = os.path.join(BASE_DIR)
-    initServer(128, 2, "{}/webhook/Clustering_l2_1000000_13516675_128_50it.hdf5", "clusters", "{}/webhook/index.hdf5", 1000000,
-               "{}/webhook/im_data", "{}/webhook/temp_feat".
-               format(base_path, base_path, base_path, base_path))
+    initServer(128, 2, base_path + "/webhook/Clustering_l2_1000000_13516675_128_50it.hdf5", "clusters", base_path + "/webhook/index.hdf5", 1000000, base_path + "/webhook/im_data", base_path + "/webhook/temp_feat")
     try:
         from django.core.management import execute_from_command_line
     except ImportError:
