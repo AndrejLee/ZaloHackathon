@@ -20,8 +20,6 @@ class WebHookView(APIView):
     parser_classes = (FormParser, MultiPartParser)
 
     def get(self, request, format=None):
-        import pdb
-        pdb.set_trace()
         image_msg = ""
         data = request.query_params
         if 'href' in data.keys():
