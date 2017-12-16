@@ -6,7 +6,7 @@ Created on Sat Nov 25 12:34:43 2017
 @author: peterluong
 """
 
-from .chatbot import Chatbot
+from chatbot import Chatbot
 
 myChatbot = Chatbot()
 
