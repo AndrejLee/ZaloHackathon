@@ -8,8 +8,6 @@ class WebHookView(APIView):
     parser_classes = (FormParser, MultiPartParser)
 
     def get(self, request, format=None):
-        import pdb
-        pdb.set_trace()
         data = request.query_params
         serializer = WebHookSerializer(data=data)
         if serializer.is_valid():

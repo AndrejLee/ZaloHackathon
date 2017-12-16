@@ -10,7 +10,7 @@ class WebHook(models.Model):
     fromuid = models.BigIntegerField(default=0)
     appid = models.BigIntegerField(default=0, null=True)
     msgid = models.CharField(max_length=100)
-    message = models.CharField(max_length=1000)
+    message = models.TextField()
     timestamp = models.BigIntegerField(default=0)
     mac = models.CharField(max_length=1000)
 
