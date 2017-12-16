@@ -31,7 +31,7 @@ class Chatbot(object):
         
     def response(self, text):
         result = {}
-        
+        text = text.lower()
         if (self.state.check_relevant(text)):
             self.next_state(text)
             if (random.randint(1,100) % 2 == 0):
