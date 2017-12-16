@@ -44,10 +44,10 @@ class WebHookView(APIView):
             if image_msg:
                 respond_text = image_msg
             else:
-                respond_text = my_chat_bot.response(text=msg)
+                respond_text = my_chat_bot.response(text=msg)['text']
             # send message to user
             if respond_text:
-                chatbot_respond(respond_text['text'], web_hook)
+                chatbot_respond(respond_text, web_hook)
             respond_serializer = MessageSerializer(data={
                 "webhook": web_hook.id,
                 "respond": respond_text
