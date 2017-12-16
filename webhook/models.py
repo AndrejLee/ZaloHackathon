@@ -8,7 +8,7 @@ class WebHook(models.Model):
     event = models.CharField(max_length=100)
     oaid = models.BigIntegerField(default=0)
     fromuid = models.BigIntegerField(default=0)
-    appid = models.BigIntegerField(default=0)
+    appid = models.BigIntegerField(default=0, null=True)
     msgid = models.CharField(max_length=100)
     message = models.CharField(max_length=1000)
     timestamp = models.BigIntegerField(default=0)

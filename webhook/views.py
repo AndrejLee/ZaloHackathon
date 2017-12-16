@@ -1,12 +1,16 @@
 from rest_framework.views import APIView
+from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.response import Response
 from .serializers import WebHookSerializer
 
 
 class WebHookView(APIView):
+    parser_classes = (FormParser, MultiPartParser)
 
     def post(self, request):
-        data = request.body
+        import pdb
+        pdb.set_trace()
+        data = request.data
         serializer = WebHookSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
