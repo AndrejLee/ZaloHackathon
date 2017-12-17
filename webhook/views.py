@@ -42,7 +42,7 @@ class WebHookView(APIView):
             msg = web_hook.message
             # chatbot_respond
             if image_msg:
-                respond_text = image_msg
+                respond_text = my_chat_bot.response(text=image_msg)['text']
             else:
                 respond_text = my_chat_bot.response(text=msg)['text']
             # send message to user
@@ -114,6 +114,8 @@ def upload_file(request):
         response_message = chatbot_retrieve(image_path)
         response_message = response_message.replace('_', ' ')
         response_message = response_message[:-1]
+        response_message = "tôi muốn mua " + response_message
+        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" + response_message)
         return response_message
 
 

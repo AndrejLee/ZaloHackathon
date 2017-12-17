@@ -12,6 +12,8 @@ def im_retrieve():
 
 def chatbot_retrieve(im_path):
     res = retrieve(im_path, 1)
+    if res[0].score() < 0.2:
+        return "bla bla bla"
     product_name = res[0].name()
     product_name = product_name.split('.')[0]
     return product_name

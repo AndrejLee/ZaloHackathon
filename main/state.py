@@ -79,7 +79,7 @@ def convert_number(sent):
     req_nums = list(num_words.keys()) + ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
     words = sent.split(' ')
 
-    i = -1
+    i = 0
     numlists = []
 
     while i < len(words):
@@ -149,7 +149,7 @@ def price_parse(text):
 def branch_parse(tokens):
     result = ''
     for each in tokens:
-        if each[3] != 'O':
+        if each[0] in ['samsung','asus','hp','apple','xiaomi']:
             result = result + ' ' + each[0]
     return result
 
@@ -318,7 +318,7 @@ class completeInfo_state(State):
         for each in database:
             if (each['category'] in product['category']):
                 self.proposal_items.append(each)
-        self.current = 0
+        self.current = 10
         self.current_product = {}
         
     def question_parse(self, text):
