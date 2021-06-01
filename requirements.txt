@@ -9,5 +9,5 @@ python-crfsuite==0.9.2
 pytz==2017.3
 requests==2.18.4
 underthesea==1.1.5
-urllib3==1.22
+urllib3==1.26.5
 zalo-python-sdk==1.15
